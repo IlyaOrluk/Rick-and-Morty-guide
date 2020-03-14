@@ -2,18 +2,18 @@
 	import axios from 'axios'
     import { onMount } from 'svelte'
     import Item from './Item.svelte'
-    import { characters } from './store.js'
-
-	onMount(() => {
-		axios.get(`https://rickandmortyapi.com/api/character/`)
+    import { characters } from '../store.js'
+    const fetchItems = (url) => {
+        axios.get(url)
             .then((res) => {
                 characters.set(res.data.results)
-                console.log($characters)
-                })
-        
+            })
+    }
+	onMount(() => {
+        fetchItems(`https://rickandmortyapi.com/api/character/`)
+
+        setTimeout(fetchItems(`https://rickandmortyapi.com/api/character/?page=2`), 2000)
     })
-    
-    
 </script>
 
 <!-- <main>
