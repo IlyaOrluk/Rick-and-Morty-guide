@@ -27,11 +27,10 @@
     }
 </style>
 
-<h1>All characters</h1>
 
 <div class="characters">
 	{#each characters as character}
-    <a href={`character/${character.id}`}>
+    <a rel=prefetch href={`character/${character.id}`}>
         <Item>
             <img slot='img' class='character__img' src={character.image} alt={character.titnamele}>
             <h2 slot="name">{character.name}</h2>

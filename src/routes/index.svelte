@@ -1,9 +1,19 @@
+<script context="module">
+    import axios from 'axios'
+    export async function preload(page, session) {
+        let locations
+        await axios.get(`https://rickandmortyapi.com/api/location?page=${2}`)
+            .then(res => locations = res.data.results)
+        return { locations }
+    }
+</script>
 <script>
-	import Nav from '../components/Nav.svelte'
+    import RandomPlanet from '../components/RandomPlanet.svelte'
+    export let locations
 </script>
 <style>
-	h2{
-        color: grey;
+    .locations {
+
     }
 </style>
 
@@ -12,10 +22,16 @@
 	<title>Sapper project template</title>
 </svelte:head>
 
-<main class='container'>
-<img src='https://media.cdn.adultswim.com/uploads/20191004/191041327281-r&m4_Hero_000000.png' alt='img'>
-    <h2>This is awesome application on awesome framework!</h2>
-</main>
+<RandomPlanet />
+<div class='locations'>
+    {#each locations as location}
+        <div>
+            <label>{location.name}</label>
+        </div>
+    {/each}
+</div>
+
+
 
 
 

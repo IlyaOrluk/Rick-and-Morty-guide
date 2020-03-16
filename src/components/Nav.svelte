@@ -53,6 +53,6 @@
 	<ul>
 		<li><a href='.'>HOME</a></li>
 		<li><a href='about'>ABOUT</a></li>
-		<li><a href='character'>CHARACTERS</a></li>
+		<li><a href='character?page=1'>CHARACTERS</a></li>
 	</ul>
 </nav>
