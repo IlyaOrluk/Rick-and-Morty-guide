@@ -1,7 +1,11 @@
-<script>
-    import Nav from '../../components/Nav.svelte'
+<script context="module">
     import ItemList from '../../components/ItemList.svelte'
-    import MainLayot from '../../layots/mainLayot.svelte'
+    import axios from 'axios'
+    import { characters, fetchCharacters } from '../../store.js'
+
+    export async function preload(page, session) {
+        fetchCharacters('https://rickandmortyapi.com/api/character/')
+    }
 </script>
 
 <svelte:head>
@@ -9,6 +13,6 @@
 </svelte:head>
 
 
-<MainLayot>
-    <ItemList />
-</MainLayot>
+
+    <ItemList {characters}/>
+

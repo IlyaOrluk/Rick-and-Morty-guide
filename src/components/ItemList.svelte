@@ -1,17 +1,8 @@
 <script>
-	import axios from 'axios'
     import { onMount } from 'svelte'
     import Item from './Item.svelte'
-    import { characters } from '../store.js'
-    const fetchItems = (url) => {
-        axios.get(url)
-            .then((res) => {
-                characters.set(res.data.results)
-            })
-    }
-	onMount(() => {
-        fetchItems(`https://rickandmortyapi.com/api/character/`)
-    })
+
+    export let characters
 </script>
 
 <!-- <main>
@@ -49,9 +40,7 @@
             <span slot="gender">Gender: {character.gender}</span>
         </Item>
     </a>
-
 	{:else}
-		<!-- this block renders when characters.length === 0 -->
 		<p>loading...</p>
 	{/each}
 </div>
