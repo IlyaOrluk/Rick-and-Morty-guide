@@ -1,5 +1,6 @@
 <script>
     import Nav from '../components/Nav.svelte'
+
 </script>
 
 <style>
@@ -11,7 +12,11 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-	}
+    }
+    :global(body) {
+        background: url('https://i.pinimg.com/originals/34/d1/8c/34d18c25d8bc178147efa8a3f5dbcbf8.jpg') no-repeat center / cover;
+        color: white;
+    }
 </style>
 
 <Nav />

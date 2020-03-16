@@ -1,11 +1,15 @@
 <script context="module">
-    import ItemList from '../../components/ItemList.svelte'
     import axios from 'axios'
-    import { characters, fetchCharacters } from '../../store.js'
-
     export async function preload(page, session) {
-        fetchCharacters('https://rickandmortyapi.com/api/character/')
+        let characters
+        await axios.get(`https://rickandmortyapi.com/api/character`)
+            .then(res => characters = res.data.results)
+        return { characters }
     }
+</script>
+<script>
+    import ItemList from '../../components/ItemList.svelte'
+    export let characters
 </script>
 
 <svelte:head>
@@ -14,5 +18,5 @@
 
 
 
-    <ItemList {characters}/>
+<ItemList {characters}/>
 

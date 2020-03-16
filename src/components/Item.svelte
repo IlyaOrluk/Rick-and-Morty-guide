@@ -11,7 +11,9 @@
 		margin: 0;
         display: flex;
         margin: 10px;
-        border: 1px solid #999;
+        border: 1px solid rgb(97, 26, 50);
+        background: #1b171987;
+        box-shadow: 0 0 6px rgba(255, 0, 0, 0.33);
 	}
 </style>
 
