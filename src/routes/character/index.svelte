@@ -1,19 +1,22 @@
 <script context="module">
     import axios from 'axios'
     export async function preload(page, session) {
-        console.log(page.query.page)
-        let characters
-        await axios.get(`https://rickandmortyapi.com/api/character?page=${page.query.page}`)
-            .then(res => characters = res.data.results)
-        return { characters }
+        let characters, info, currentPage = Number(page.query.page)
+        await axios.get(`https://rickandmortyapi.com/api/character?page=${currentPage}`)
+            .then(res => {
+                info = res.data.info
+                characters = res.data.results
+                })
+        return { characters, info, currentPage }
     }
 </script>
 <script>
     import ItemList from '../../components/ItemList.svelte'
     import { stores } from '@sapper/app'
     const { preloading } = stores()
-    export let characters
-    
+    export let characters, info, currentPage
+
+    console.log(info, currentPage)
 </script>
 
 <svelte:head>
@@ -23,9 +26,13 @@
 
 
 <div class='pagination'>
-    <a href='/character?page=1'>1</a>
-    <a href='/character?page=2'>2</a>
-    <a href='/character?page=3'>3</a>
+    {#if info.prev}
+    <a href={`/character?page=${currentPage-1}`}>prev</a>
+    {/if}
+    <a href={`/character?page=${currentPage}`}>{currentPage}</a>
+    {#if info.next}
+    <a href={`/character?page=${currentPage+1}`}>next</a>
+    {/if}
 </div>
 {#if $preloading}
 	<img src='https://johnjorgenson.com/wp-content/uploads/2018/05/colorful-loader-gif-transparent.gif' alt=''>
