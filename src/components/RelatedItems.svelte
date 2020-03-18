@@ -1,29 +1,47 @@
 <script>
     export let items
+    export let title
+    export let link
 </script>
 
+<main>
+    <label>{title}</label>
+    <hr/>
+    <div class='list'>
+            {#each items as item}
+                <a href={link+item.id} class='list__item'>
+                    <img src={item.img} alt={item.name}>
+                    <h4>{item.name}</h4>
+                </a>
+            {:else}
+                <label>NOT FOUND</label>
+            {/each}
+    </div>
+</main>
 
-<div class='list'>
-        {#each items as item}
-            <div class='list__item'>
-                <img src={item.img} alt={item.name}>
-                <h4>{item.name}</h4>
-            </div>
-        {:else}
-            <label>NOT FOUND</label>
-        {/each}
-</div>
 
 
 <style>
-    .list {
+    main {
         width: 49.5%;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
         border: 1px solid rgb(97, 26, 50);
         background: #1b171987;
         box-shadow: 0 0 6px rgba(255, 0, 0, 0.33);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+    }
+    label {
+        margin: 10px 20px;
+        font-size: 18px;
+        font-weight: 400;
+    }
+    .list {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
         height: 20vh;
         overflow: auto;
     }

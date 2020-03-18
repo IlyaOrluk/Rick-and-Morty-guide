@@ -45,7 +45,7 @@
         margin: 20px;
     }
     .episode__item img {
-        width: 80px;
+        width: 160px;
         height: auto;
     }
     
@@ -66,10 +66,10 @@
 
 <div class='episode'>
     {#each episodes as episode}
-        <div class='episode__item'>
-            <img src='https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/cda08c55617997.598bcd54e5d8b.jpg' alt={episode.name}>
+        <a href={`/episode/${episode.id}`} class='episode__item'>
+            <img src={`episodes/${episode.id}.png`} alt={episode.name}>
             <span>{episode.episode}</span>
-        </div>
+        </a>
     {/each}
 </div>
 

@@ -1,6 +1,4 @@
 <script>
-    export let character
-    const { name, status, image, species, gender, location } = character
 
 </script>
 
@@ -27,22 +25,16 @@
         align-items: flex-start;
         margin: 20px 40px;
     }
-    h2 {
-
-    }
 </style>
 
-{#if character !== {}}
-    <main>
-        <img src={image} alt={name}>
-        <div class='info'>
-            <h2>{name}</h2>
-            <hr/>
-            <span>Status: {status}</span>
-            <span>Species: {species}</span>
-            <span>Gender: {gender}</span>
-        </div>
-    </main>
-{:else}
-    <h1>LOADING.......</h1>
-{/if}
+<main>
+<slot name='image'></slot>
+    <div class='info'>
+        <slot name='name'></slot>
+        <hr/>
+        <slot name='first-label'></slot>
+        <slot name='second-label'></slot>
+        <slot name='third-label'></slot>
+        <slot name='fourth-label'></slot>
+    </div>
+</main>

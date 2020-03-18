@@ -9,10 +9,12 @@
         // this.error(404, 'Персонаж не надйен')
         const locations = [
                 {
+                    id: character.origin.url.match(/[0-9]*[0-9]/)[0],
                     name: character.origin.name,
                     img: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
                 },
                 {
+                    id: character.location.url.match(/[0-9]*[0-9]/)[0],
                     name: character.location.name,
                     img: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
                 }
@@ -28,12 +30,14 @@
                 if(res.data.length){
                     episodes = res.data.map(episode => {
                         return {
+                            id: episode.id,
                             name: episode.name,
                             img: `episodes/${episode.id}.png`
                         }
                     })
                 } else {
                     episodes = [{
+                        id: res.data.id,
                         name: res.data.name,
                         img: `episodes/${res.data.id}.png`
                     }]
@@ -51,6 +55,7 @@
     export let character
     export let episodes
     export let locations
+
 </script>
 
 
@@ -59,12 +64,19 @@
 </svelte:head>
 
 <main>
-    <ItemView {character}/>
+    <ItemView>
+        <img slot='image' src={character.image} alt={character.name}>
+        <h2 slot='name'>{character.name}</h2>
+        <label slot='first-label'>Status: {character.status}</label>
+        <label slot='second-label'>Species: {character.species}</label>
+        <label slot='third-label'>Gender: {character.gender}</label>
+        <label slot='fourth-label'>{character.type ? 'Type: ' : ''}{character.type}</label>
+    </ItemView>
     <div class='relateds'>
         {#if episodes !== []}
-            <RelatedItems items={episodes} />
+            <RelatedItems items={episodes} title={'Related Episodes'} link={`/episode/`}/>
         {/if}
-        <RelatedItems items={locations} />
+        <RelatedItems items={locations} title={'Related Locations'} link={`/location/`}/>
     </div>
 </main>
 
@@ -75,6 +87,10 @@
         flex-direction: column;
         margin: 30px;
         width: 100%;
+    }
+    img {
+        width: 200px;
+        height: 200px;
     }
     .relateds {
         display: flex;
