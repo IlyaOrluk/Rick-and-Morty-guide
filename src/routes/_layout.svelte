@@ -17,6 +17,10 @@
         background: url('https://i.pinimg.com/originals/34/d1/8c/34d18c25d8bc178147efa8a3f5dbcbf8.jpg') no-repeat center / cover;
         color: white;
     }
+	:global(hr) {
+        border-color: rgb(97, 26, 50);
+        width: 100%;
+    }
 </style>
 
 <Nav />

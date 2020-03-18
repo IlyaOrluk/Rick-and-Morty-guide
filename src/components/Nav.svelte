@@ -53,8 +53,8 @@
 	<ul>
 		<li><a href='.'>HOME</a></li>
 		<li><a href='character?page=1'>CHARACTERS</a></li>
-		<li><a href='about'>EPISODES</a></li>
-		<li><a href='about'>LOCATIONS</a></li>
+		<li><a href='episode?page=1'>EPISODES</a></li>
+		<li><a href='location?page=1'>LOCATIONS</a></li>
 		<li><a href='about'>ABOUT</a></li>
 	</ul>
 </nav>

@@ -16,7 +16,6 @@
     const { preloading } = stores()
     export let characters, info, currentPage
 
-    console.log(info, currentPage)
 </script>
 
 <svelte:head>

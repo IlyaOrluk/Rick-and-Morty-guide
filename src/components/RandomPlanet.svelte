@@ -1,5 +1,6 @@
 <script>
-
+    export let location
+    const { name, type, dimension } = location
 </script>
 <style>
     main {
@@ -11,6 +12,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
+
     }
     .info {
         display: flex;
@@ -28,8 +30,8 @@
 <main>
     <img src='https://vignette.wikia.nocookie.net/rickandmorty/images/7/74/Screenshot_2015-10-05_at_1.24.48_PM.png/revision/latest?cb=20151005172657' alt=''>
     <div class='info'>
-        <h3>Earth</h3>
-        <label>TYPE: Planet</label>
-        <label>dimension: Dimension C-137</label>
+        <h3>{name}</h3>
+        <label>TYPE: {type}</label>
+        <label>dimension: {dimension}</label>
     </div>
 </main>
