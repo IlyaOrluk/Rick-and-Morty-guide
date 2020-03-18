@@ -1,12 +1,11 @@
 <script>
-    import { onMount } from 'svelte'
     import Item from './Item.svelte'
 
-    export let characters
+    export let locations
 </script>
 
 <style>
-    .characters {
+    .locations {
         width: 100%;
         display: flex;
         justify-content: space-around;
@@ -16,17 +15,18 @@
 	a {
         text-decoration: none;
 	}
-    .character__img {
+    .location__img {
         width: 200px;
         height: 200px;
+        object-fit: cover;
     }
     h2 {
        font-size: 15px;
     }
 
-    .character {
+    .location {
        	width: 200px;
-        height: 230px;
+        height: 240px;
 		margin: 0;
         display: flex;
         flex-direction: column;
@@ -40,13 +40,13 @@
 </style>
 
 
-<div class="characters">
-	{#each characters as character}
-        <a rel=prefetch href={`character/${character.id}`}>
-            <div class="character">
+<div class="locations">
+	{#each locations as location}
+        <a rel=prefetch href={`location/${location.id}`}>
+            <div class="location">
                 <Item>
-                    <img slot='img' class='character__img' src={character.image} alt={character.titnamele}>
-                    <h2 slot="name">{character.name}</h2>
+                    <img slot='img' class='location__img' src={`locations/${location.id}.png`} alt={location.titnamele}>
+                    <h2 slot="name">{location.name}</h2>
                 </Item>
             </div>
         </a>

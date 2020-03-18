@@ -53,7 +53,7 @@
 
 
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>Rick&Morty | Guide</title>
 </svelte:head>
 
 {#if $preloading}

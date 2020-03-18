@@ -3,16 +3,26 @@
 </script>
 
 <svelte:head>
-	<title>About</title>
+	<title>Rick&Morty | About</title>
 </svelte:head>
 
 <main>
     <h2>ABOUT</h2>
-    <img src='https://i.ytimg.com/vi/dYt6Jrut3yY/maxresdefault.jpg' alt='img'>
+    <img src='https://cdn-images-1.medium.com/max/1000/1*d5g31wvUpmILqzge216Fug.png' alt='img'>
     <h2>This is awesome application on awesome framework!</h2>
 </main>
 
 <style>
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    img {
+        width: 40vh;
+        height: auto;
+    }
     h2{
         color: grey;
     }

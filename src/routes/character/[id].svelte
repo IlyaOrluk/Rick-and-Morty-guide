@@ -8,16 +8,16 @@
 
         // this.error(404, 'Персонаж не надйен')
         const locations = [
-                {
-                    id: character.origin.url.match(/[0-9]*[0-9]/)[0],
+                character.origin ? {
+                    id: 1,
                     name: character.origin.name,
                     img: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
-                },
-                {
-                    id: character.location.url.match(/[0-9]*[0-9]/)[0],
+                } : null,
+                character.location ? {
+                    id: 2,
                     name: character.location.name,
                     img: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
-                }
+                } : null
             ]
         let relatedEpisodes = []
         let episodes = []

@@ -14,10 +14,10 @@
         margin: 10px 0;
     }
 
-    main img {
+    /* main img {
         width: 200px;
         height: 200px;
-    }
+    } */
     .info{
         display: flex;
         flex-direction: column;

@@ -25,8 +25,14 @@
     <title>{'title'}</title>
 </svelte:head>
 
+<style>
+    img {
+        width: 300px;
+    }
+</style>
+
 <ItemView>
-    <img slot='image' src={`location/${location.id}.png`} alt={location.name}>
+    <img slot='image' src={`locations/${location.id}.png`} alt={location.name}>
     <h2 slot='name'>{location.name}</h2>
     <label slot='first-label'>Type: {location.type}</label>
     <label slot='second-label'>Dimension: {location.dimension}</label>
