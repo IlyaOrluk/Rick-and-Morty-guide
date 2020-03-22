@@ -1,5 +1,6 @@
 <script>
 
+
 </script>
 
 <style>
@@ -11,7 +12,6 @@
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        margin: 10px 0;
     }
 
     /* main img {

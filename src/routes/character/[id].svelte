@@ -11,12 +11,12 @@
                 character.origin ? {
                     id: 1,
                     name: character.origin.name,
-                    img: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
+                    image: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
                 } : null,
                 character.location ? {
                     id: 2,
                     name: character.location.name,
-                    img: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
+                    image: 'https://vignette.wikia.nocookie.net/rickandmorty/images/c/c4/Screenshot_2015-10-05_at_1.19.14_PM.png/revision/latest?cb=20151005172134'
                 } : null
             ]
         let relatedEpisodes = []
@@ -32,14 +32,14 @@
                         return {
                             id: episode.id,
                             name: episode.name,
-                            img: `episodes/${episode.id}.png`
+                            image: `episodes/${episode.id}.png`
                         }
                     })
                 } else {
                     episodes = [{
                         id: res.data.id,
                         name: res.data.name,
-                        img: `episodes/${res.data.id}.png`
+                        image: `episodes/${res.data.id}.png`
                     }]
                 }
             })
@@ -64,20 +64,19 @@
 </svelte:head>
 
 <main>
-    <ItemView>
-        <img slot='image' src={character.image} alt={character.name}>
-        <h2 slot='name'>{character.name}</h2>
-        <label slot='first-label'>Status: {character.status}</label>
-        <label slot='second-label'>Species: {character.species}</label>
-        <label slot='third-label'>Gender: {character.gender}</label>
-        <label slot='fourth-label'>{character.type ? 'Type: ' : ''}{character.type}</label>
-    </ItemView>
-    <div class='relateds'>
-        {#if episodes !== []}
-            <RelatedItems items={episodes} title={'Related Episodes'} link={`/episode/`}/>
-        {/if}
+
+        <ItemView>
+            <img slot='image' src={character.image} alt={character.name}>
+            <h2 slot='name'>{character.name}</h2>
+            <label slot='first-label'>Status: {character.status}</label>
+            <label slot='second-label'>Species: {character.species}</label>
+            <label slot='third-label'>Gender: {character.gender}</label>
+            <label slot='fourth-label'>{character.type ? 'Type: ' : ''}{character.type}</label>
+        </ItemView>
         <RelatedItems items={locations} title={'Related Locations'} link={`/location/`}/>
-    </div>
+    {#if episodes !== []}
+        <RelatedItems items={episodes} title={'Related Episodes'} link={`/episode/`}/>
+    {/if}
 </main>
 
 
@@ -86,14 +85,15 @@
         display: flex;
         flex-direction: column;
         margin: 30px;
-        width: 100%;
+        width: 60%;
+        min-width: 570px;
     }
     img {
         width: 200px;
         height: 200px;
     }
-    .relateds {
+    /* .relateds {
         display: flex;
         justify-content: space-between;
-    }
+    } */
 </style>

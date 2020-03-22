@@ -10,7 +10,7 @@
     <div class='list'>
             {#each items as item}
                 <a href={link+item.id} class='list__item'>
-                    <img src={item.img} alt={item.name}>
+                    <img src={item.image} alt={item.name}>
                     <h4>{item.name}</h4>
                 </a>
             {:else}
@@ -23,7 +23,7 @@
 
 <style>
     main {
-        width: 49.5%;
+        width: 100%;
         border: 1px solid rgb(97, 26, 50);
         background: #1b171987;
         box-shadow: 0 0 6px rgba(255, 0, 0, 0.33);
@@ -42,7 +42,6 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        height: 20vh;
         overflow: auto;
     }
 
