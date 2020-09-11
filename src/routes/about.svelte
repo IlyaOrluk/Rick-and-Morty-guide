@@ -14,16 +14,15 @@
 
 <style>
     main {
+        margin: 7vh;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        color: azure;
     }
     img {
         width: 40vh;
         height: auto;
-    }
-    h2{
-        color: grey;
     }
 </style>

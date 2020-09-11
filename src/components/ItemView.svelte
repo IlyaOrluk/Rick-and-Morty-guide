@@ -1,40 +1,41 @@
 <script>
 
-
 </script>
 
 <style>
-    main{
-        border: 1px solid rgb(97, 26, 50);
-        background: #1b171987;
-        box-shadow: 0 0 6px rgba(255, 0, 0, 0.33);
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-    }
+  main {
+    border-radius: 50px 0;
+    background: #5c756c;
+    box-shadow: -15px -15px 63px #7aa74d, 15px 15px 63px #a4e168;
+    margin: 5vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    overflow: hidden;
+  }
 
-    /* main img {
+  /* main img {
         width: 200px;
         height: 200px;
     } */
-    .info{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: flex-start;
-        margin: 20px 40px;
-    }
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 20px 40px;
+  }
 </style>
 
 <main>
-<slot name='image'></slot>
-    <div class='info'>
-        <slot name='name'></slot>
-        <hr/>
-        <slot name='first-label'></slot>
-        <slot name='second-label'></slot>
-        <slot name='third-label'></slot>
-        <slot name='fourth-label'></slot>
-    </div>
+  <slot name="image" />
+  <div class="info">
+    <slot name="name" />
+    <hr />
+    <slot name="first-label" />
+    <slot name="second-label" />
+    <slot name="third-label" />
+    <slot name="fourth-label" />
+  </div>
 </main>
